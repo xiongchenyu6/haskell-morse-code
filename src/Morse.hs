@@ -57,7 +57,7 @@ charToMorse :: Char -> Maybe Morse
 charToMorse c = letterToMorse M.!? c
 
 stringToMorse :: String -> Maybe [Morse]
-stringToMorse s = sequence $ fmap charToMorse s
+stringToMorse s = traverse charToMorse s
 
 morseToChar :: Morse -> Maybe Char
 morseToChar m = morseToLetter M.!? m
